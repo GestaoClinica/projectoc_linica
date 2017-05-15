@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/templetes/modeloSistema.xhtml"
+         
+            >
+
+
+ <ui:define name="menu">
+
+    </ui:define>
+    <ui:define name="conteudo">
+       
+        <form id="frmPaciente">
+         
+        <p:dataTable id="tblFabricantes" emptyMessage="nenhum dado encontrado" 
+                     value="#{MBFabricante.items}"
+                     var= "item" paginator="true" rows="5">
+            
+            <f:facet name="header">
+                Pacientes - listagem
+            </f:facet>
+            <p:column headerText="codigo" sortBy="#{item.codigo}" filterBy="#{item.codigo}">
+                <h:outputText value="#{item.codigo}"/>
+
+            </p:column>
+
+            <p:column headerText="nome" sortBy="#{item.nomePaciente}" filterBy="#{item.residencia}">
+                <h:outputText value="#{item.descricao}"/>
+            </p:column>
+            
+              <p:column headerText="Nr de BI " sortBy="#{item.bi}" filterBy="#{item.bi}">
+                <h:outputText value="#{item.codigo}"/>
+
+            </p:column>
+            
+            
+             <p:column headerText="residencia" sortBy="#{item.residencia}" filterBy="#{item.residencia}">
+                <h:outputText value="#{item.codigo}"/>
+
+            </p:column>
+            
+            
+            <f:facet name="footer">
+                <p:commandButton value="Novo"  actionListener="#{MBFabricante.prepararNovo}"
+                                 oncomplete="PF('dlgFabNovo').show();"/>
+            </f:facet>
+
+        </p:dataTable>
+        </form>   
+        
+         
+        
+    <p:dialog widgetVar="dlgFabNovo" closable="false" 
+                  draggable="false" resizable="false"  
+                  modal="true" appendTo="@(body)"
+                  header="Fabricante Novo"
+                  >
+                      
+        
+        <h:form>
+            
+            <h:panelGrid columns="2">
+
+                <p:outputLabel value="descricao:" />
+                <p:inputText size="30" maxlength="50" value="#{MBFabricante.fabricante.descricao}"/>
+
+            </h:panelGrid>
+            <h:panelGrid columns="2">
+                <p:commandButton value="Gravar" actionListener="#{MBFabricante.novo}"
+                                 oncomplete="PF('dlgFabNovo').hide();" />
+                <p:commandButton value="cancelar" onclick=""
+                                 oncomplete="PF('dlgFabNovo').hide();"/>
+
+
+            </h:panelGrid>    
+        </h:form>
+    </p:dialog>
+   
+    
+                  
+
+    </ui:define>
+
+
+</ui:composition>
