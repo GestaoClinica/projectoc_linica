@@ -1,6 +1,6 @@
 package Clinica.conexao;
 
-//teste do mabuito
+//teste do mabuito 34
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
