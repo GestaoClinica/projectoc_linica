@@ -1,13 +1,14 @@
 package Clinica.conexao;
 
 //teste do mabuito
+//ultimo teste
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexao {
 	private static final String USUARIO = "root";
-	private static final String SENHA = "root";
+	private static final String SENHA = "1846";
 	private static final String URL = "jdbc:mysql://localhost:3306/Clinica";
 
 	public static Connection conectar() throws SQLException{
