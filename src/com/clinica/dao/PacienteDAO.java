@@ -20,7 +20,7 @@ public void salvar (Paciente p) throws SQLException{
 		sql.append("VALUES (?, ?, ?, ?, ?, ?) ");
 		
 		Connection conexao= Conexao.conectar();
-		
+		//
 		PreparedStatement comando=conexao.prepareStatement(sql.toString());
 		comando.setString(1, p.getNomePaciente());
 		comando.setString(2, p.getBiPaciente());
@@ -31,6 +31,7 @@ public void salvar (Paciente p) throws SQLException{
 		comando.executeUpdate();
 	}
 	
+//
 public static void main(String[] args) throws SQLException {
 	PacienteDAO dao= new PacienteDAO();
 	
@@ -41,9 +42,7 @@ public static void main(String[] args) throws SQLException {
 	
 	dao.salvar(p);
 	
-		
-		
-		
+		//		
 	}
 }
 
